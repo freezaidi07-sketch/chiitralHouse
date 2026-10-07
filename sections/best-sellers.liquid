@@ -4,32 +4,54 @@
     <h2 class="section-title">Shop shilajit resin and bundles</h2>
 
     <div class="product-grid">
-      {% for product in collections.all.products limit: 4 %}
-        <article class="product-card">
-          <div class="product-badges">
-            <span class="product-badge">Popular</span>
-          </div>
-          <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" />
-          <div class="product-card__body">
-            <h3>{{ product.title }}</h3>
-            <p>{{ product.description | strip_html | truncate: 90 }}</p>
-            <div class="product-card__meta">
-              <div>
-                <div class="product-card__price">{{ product.price | money }}</div>
-                <div class="product-card__old">{{ product.compare_at_price | money }}</div>
-              </div>
-              <a class="product-card__link" href="{{ product.url }}">View →</a>
+      {% assign products = collections.all.products %}
+
+      {% if products.size > 0 %}
+        {% for product in products limit: 4 %}
+          <article class="product-card">
+            <div class="product-badges">
+              <span class="product-badge">Popular</span>
             </div>
-          </div>
-        </article>
+            <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}" />
+            <div class="product-card__body">
+              <h3>{{ product.title }}</h3>
+              <p>{{ product.description | strip_html | truncate: 90 }}</p>
+              <div class="product-card__meta">
+                <div>
+                  <div class="product-card__price">{{ product.price | money }}</div>
+                  {% if product.compare_at_price > product.price %}
+                    <div class="product-card__old">{{ product.compare_at_price | money }}</div>
+                  {% endif %}
+                </div>
+                <a class="product-card__link" href="{{ product.url }}">View →</a>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
       {% else %}
-        <article class="product-card">
-          <div class="product-card__body">
-            <h3>No products yet</h3>
-            <p>Add products in Shopify admin to populate this section.</p>
-          </div>
-        </article>
-      {% endfor %}
+        {% assign fallback_products = 'Signature Gold Resin, Pure Shilajit Resin, Pure Shilajit Resin, Resin and Drops Bundle' | split: ', ' %}
+        {% assign fallback_prices = '3999, 1400, 2400, 6500' | split: ', ' %}
+        {% assign fallback_images = 'Shilajit.webp, shilajeetc.webp, shilajeett.webp, shilajeetm.webp' | split: ', ' %}
+
+        {% for i in (0..3) %}
+          <article class="product-card">
+            <div class="product-badges">
+              <span class="product-badge">Popular</span>
+            </div>
+            <img src="{{ fallback_images[i] | asset_url }}" alt="{{ fallback_products[i] }}" />
+            <div class="product-card__body">
+              <h3>{{ fallback_products[i] }}</h3>
+              <p>Authentic Himalayan shilajit product with trusted delivery across Pakistan.</p>
+              <div class="product-card__meta">
+                <div>
+                  <div class="product-card__price">Rs. {{ fallback_prices[i] }}</div>
+                </div>
+                <a class="product-card__link" href="{{ routes.all_products_collection_url }}">View →</a>
+              </div>
+            </div>
+          </article>
+        {% endfor %}
+      {% endif %}
     </div>
   </div>
 </section>

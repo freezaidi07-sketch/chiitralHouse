@@ -15,7 +15,11 @@
     "bestsellers": {
       "type": "best-sellers",
       "settings": {}
+    },
+    "reviews": {
+      "type": "testimonials",
+      "settings": {}
     }
   },
-  "order": ["hero", "features", "categories", "bestsellers"]
+  "order": ["hero", "features", "categories", "bestsellers", "reviews"]
 }

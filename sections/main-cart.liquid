@@ -1,6 +1,37 @@
-<section class="page-wrap">
+<section class="section-shell">
   <div class="container">
-    <h1>Cart</h1>
-    <p>Your cart is empty.</p>
+    <h1 class="section-title">Your cart</h1>
+
+    {% if cart.item_count == 0 %}
+      <div class="product-card" style="padding: 2rem; max-width: 700px;">
+        <h3>Your cart is empty</h3>
+        <p style="margin-top: 0.8rem;">Add products from the shop to see them here.</p>
+        <a href="{{ routes.all_products_collection_url }}" class="btn-primary" style="margin-top: 1.2rem;">Continue shopping</a>
+      </div>
+    {% else %}
+      <div class="cart-grid">
+        {% for item in cart.items %}
+          <article class="product-card" style="display: grid; grid-template-columns: 110px 1fr auto; gap: 1rem; align-items: center; padding: 1rem; margin-bottom: 1rem;">
+            {% if item.image %}
+              <img src="{{ item.image | image_url: width: 300 }}" alt="{{ item.title | escape }}" style="width: 110px; height: 110px; object-fit: cover; border-radius: 10px;" />
+            {% endif %}
+            <div>
+              <h3>{{ item.product.title }}</h3>
+              <p>{{ item.variant.title }}</p>
+              <p>Qty: {{ item.quantity }}</p>
+            </div>
+            <strong>{{ item.final_line_price | money }}</strong>
+          </article>
+        {% endfor %}
+      </div>
+
+      <div class="product-card" style="padding: 1.5rem; max-width: 360px; margin-left: auto; margin-top: 1.5rem;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 0.7rem;">
+          <span>Subtotal</span>
+          <strong>{{ cart.total_price | money }}</strong>
+        </div>
+        <a href="/checkout" class="btn-primary" style="width: 100%;">Checkout</a>
+      </div>
+    {% endif %}
   </div>
 </section>
