@@ -1,9 +1,21 @@
 {
   "sections": {
-    "main": {
-      "type": "main-index",
+    "hero": {
+      "type": "hero-banner",
+      "settings": {}
+    },
+    "features": {
+      "type": "features-strip",
+      "settings": {}
+    },
+    "categories": {
+      "type": "category-grid",
+      "settings": {}
+    },
+    "bestsellers": {
+      "type": "best-sellers",
       "settings": {}
     }
   },
-  "order": ["main"]
+  "order": ["hero", "features", "categories", "bestsellers"]
 }

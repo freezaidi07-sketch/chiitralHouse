@@ -1,11 +1,16 @@
 <header class="site-header">
   <div class="container site-header__inner">
     <a href="{{ routes.root_url }}" class="site-logo">{{ shop.name }}</a>
+
     <nav aria-label="Main navigation">
       <ul class="site-nav">
-        <li><a href="{{ routes.all_products_collection_url }}">Products</a></li>
+        <li><a href="{{ routes.root_url }}">Home</a></li>
+        <li><a href="{{ routes.all_products_collection_url }}">Shop</a></li>
+        <li><a href="{{ routes.root_url }}collections/all">Collections</a></li>
         <li><a href="{{ routes.root_url }}pages/contact">Contact</a></li>
       </ul>
     </nav>
+
+    <a href="{{ routes.all_products_collection_url }}" class="site-cta">Shop now</a>
   </div>
 </header>

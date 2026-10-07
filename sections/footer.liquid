@@ -1,11 +1,17 @@
 <footer class="site-footer">
   <div class="container site-footer__inner">
-    <p>© {{ 'now' | date: '%Y' }} {{ shop.name }}. All rights reserved.</p>
-    <nav aria-label="Footer navigation">
-      <ul class="site-nav">
-        <li><a href="{{ routes.root_url }}">Home</a></li>
-        <li><a href="{{ routes.root_url }}pages/contact">Contact</a></li>
-      </ul>
+    <div class="footer-brand">
+      <div class="site-logo">{{ shop.name }}</div>
+      <p>Pure Himalayan Shilajit in Pakistan</p>
+    </div>
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="{{ routes.root_url }}">Home</a>
+      <a href="{{ routes.all_products_collection_url }}">Shop</a>
+      <a href="{{ routes.root_url }}pages/contact">Contact</a>
+      <a href="{{ routes.root_url }}pages/faq">FAQs</a>
     </nav>
+
+    <div class="footer-copy">© {{ 'now' | date: '%Y' }} {{ shop.name }}</div>
   </div>
 </footer>
