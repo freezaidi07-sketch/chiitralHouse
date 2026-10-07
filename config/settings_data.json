@@ -1,0 +1,12 @@
+{
+  "current": {
+    "presets": {
+      "default": {
+        "color_primary": "#6B4F3A",
+        "color_background": "#F7F3EE",
+        "heading_font": "Libre Baskerville",
+        "body_font": "Inter"
+      }
+    }
+  }
+}

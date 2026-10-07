@@ -1,0 +1,44 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Chitral House",
+    "theme_version": "1.0.0",
+    "theme_author": "Chitral House",
+    "theme_documentation_url": "https://example.com",
+    "theme_support_url": "https://example.com"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary accent",
+        "default": "#6B4F3A"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#F7F3EE"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading_font",
+        "label": "Heading font",
+        "default": "Libre Baskerville"
+      },
+      {
+        "type": "text",
+        "id": "body_font",
+        "label": "Body font",
+        "default": "Inter"
+      }
+    ]
+  }
+]

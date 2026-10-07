@@ -1,0 +1,16 @@
+<section class="page-wrap">
+  <div class="container">
+    <h1>{{ shop.name }}</h1>
+    <p>Welcome to your Shopify theme.</p>
+    <div class="product-grid">
+      {% for product in collections.all.products limit: 4 %}
+        <article class="card">
+          <h2><a href="{{ product.url }}">{{ product.title }}</a></h2>
+          <p>{{ product.price | money }}</p>
+        </article>
+      {% else %}
+        <p>No products available yet.</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
