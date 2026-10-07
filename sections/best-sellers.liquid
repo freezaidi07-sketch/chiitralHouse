@@ -23,7 +23,7 @@
                     <div class="product-card__old">{{ product.compare_at_price | money }}</div>
                   {% endif %}
                 </div>
-                <a class="product-card__link" href="{{ product.url }}">View →</a>
+                <a class="product-card__link" href="{{ product.url | default: routes.all_products_collection_url }}">Order now →</a>
               </div>
             </div>
           </article>
@@ -46,7 +46,7 @@
                 <div>
                   <div class="product-card__price">Rs. {{ fallback_prices[i] }}</div>
                 </div>
-                <a class="product-card__link" href="{{ routes.all_products_collection_url }}">View →</a>
+                <a class="product-card__link" href="{{ routes.all_products_collection_url }}">Order now →</a>
               </div>
             </div>
           </article>
